@@ -86,29 +86,23 @@ The following screenshots provide visual evidence supporting the investigation. 
 
 ### Evidence 01 — Wazuh Failed-Logon Alerts
 
-Wazuh alert results showing the four failed-logon events, timestamps, severity, and rule ID.
-
-![Evidence 01 — Wazuh Failed-Logon Alerts](BAZECORP-IR-2026-001_Evidence-01_Wazuh-Failed-Logon-Alerts.png)
+![Evidence 01 — Wazuh Failed-Logon Alerts](./BAZECORP-IR-2026-001_Evidence-01_Wazuh-Failed-Logon-Alerts.png)
 
 ### Evidence 02 — Joyce Account Search Results
 
-Wazuh search results filtered for the affected account and endpoint, showing four matching events within the selected time range.
-
-![Evidence 02 — Joyce Account Search Results](BAZECORP-IR-2026-001_Evidence-02_Joyce-Account-Search-Results.png)
+![Evidence 02 — Joyce Account Search Results](./BAZECORP-IR-2026-001_Evidence-02_Joyce-Account-Search-Results.png)
 
 ### Evidence 03 — GLPI Incident Ticket
 
-GLPI ticket #52 documenting the incident summary, affected account, investigation details, and assignment to the BAZECORP SOC Team.
-
-![Evidence 03 — GLPI Incident Ticket 52](BAZECORP-IR-2026-001_Evidence-03_GLPI-Incident-Ticket.png)
+![Evidence 03 — GLPI Incident Ticket](./BAZECORP-IR-2026-001_Evidence-03_GLPI-Incident-Ticket.png)
 
 ### Evidence 04 — Detailed Failed-Logon Event
 
-Detailed Windows event fields showing the affected account, event timestamp, source address, and authentication failure status.
-
-![Evidence 04 — Detailed Failed-Logon Event](BAZECORP-IR-2026-001_Evidence-04_Detailed-Failed-Logon-Event.png)
+![Evidence 04 — Detailed Failed-Logon Event](./BAZECORP-IR-2026-001_Evidence-04_Detailed-Failed-Logon-Event.png)
 
 ### Evidence 05 — Final Investigation Assessment
+
+![Evidence 05 — Final Investigation Assessment](./BAZECORP-IR-2026-001_Evidence-05_Final-Investigation-Assessment.png)
 
 The GLPI follow-up documenting the final assessment, investigation limitations, and escalation recommendation.
 
