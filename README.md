@@ -32,85 +32,87 @@ The documented environment includes the following technologies:
 - **Sysmon** — Endpoint telemetry supporting process and network activity investigations.
 - **GLPI** — Incident ticketing, assignment, and investigation documentation.
 
-*Technologies are listed according to their use in the documented investigations.*
+*Technologies are listed according to their use in the documented investigation.*
 
 ---
 
-## 🚨 Incident Reports
+## 🚨 Incident Report: IR-2026-001
 
-### IR-2026-001 — Joyce Finance Failed-Logon Investigation
+### Joyce Finance — Failed-Logon Investigation
 
-**Incident date:** October 23, 2026  
-**Affected account:** `BAZECORP\joyce.finance`  
-**Endpoint:** `BAZECORP-SRV-01`  
-**Wazuh agent ID:** `006`  
-**Windows Security Event ID:** `4625`  
-**Wazuh rule ID:** `60122`  
-**Incident ticket:** GLPI #52  
-**Investigation status:** Escalated for follow-up
+| Field | Details |
+|---|---|
+| Incident Date | October 23, 2026 |
+| Affected Account | `BAZECORP\joyce.finance` |
+| Endpoint | `BAZECORP-SRV-01` |
+| Wazuh Agent ID | `006` |
+| Windows Security Event ID | `4625` |
+| Wazuh Rule ID | `60122` |
+| GLPI Ticket | #52 |
+| Disposition | Escalated for follow-up |
 
-#### Incident Summary
+### Incident Summary
 
 Wazuh identified four failed logon events associated with the `joyce.finance` Active Directory account on `BAZECORP-SRV-01` at approximately 20:56 on October 23, 2026.
 
 The events were classified as logon failures associated with an unknown user or incorrect password. Detailed event evidence recorded the source address as `127.0.0.1`, indicating loopback activity on the endpoint.
 
-#### Investigation Findings
+### Investigation Findings
 
-- Four failed authentication events were identified for the account.
+- Four failed authentication events were identified for the affected account.
 - Windows Security Event ID `4625` and Wazuh rule `60122` were associated with the alerts.
 - The recorded source address was `127.0.0.1`.
 - The available evidence does not establish whether Joyce personally initiated the attempts or whether another person or local process was responsible.
 - No matching successful logon was identified in the searched Wazuh results for the relevant period.
 - Nearby Sysmon activity was reviewed, but no direct relationship to the failed logons was established.
 
-#### Recommended Response
+### Recommended Response and Remediation
 
 1. Escalate the incident to the SOC lead and relevant IT administrators.
 2. Contact Joyce to verify whether the authentication attempts were expected.
 3. Request a password change in accordance with organizational procedures.
-4. Maintain close monitoring of the account and relevant endpoint for further suspicious authentication activity.
-5. Record follow-up actions and update the incident ticket as remediation progresses.
+4. Maintain close monitoring of the affected account and endpoint for further suspicious authentication activity.
+5. Document follow-up actions and update GLPI ticket #52 as remediation progresses.
 
-**Assessment:** The repeated authentication failures warrant escalation. Account compromise has not been confirmed by the available evidence.
+**Final assessment:** The repeated authentication failures warrant escalation. Account compromise has not been confirmed by the available evidence.
 
-**Tracking record:** GLPI ticket #52.
+**Incident tracking:** GLPI ticket #52.
 
 ---
 
 ## 📸 Incident Evidence
 
-The following evidence files will be displayed here after they are uploaded to this repository.
+The following screenshots provide visual evidence supporting the investigation. Select an image to view it at full size.
 
 ### Evidence 01 — Wazuh Failed-Logon Alerts
 
-The Wazuh alert results showing four failed-logon events and their timestamps.
+Wazuh alert results showing the four failed-logon events, timestamps, severity, and rule ID.
 
-![Wazuh Failed-Logon Alerts](incidents/BAZECORP-IR-2026-001/evidence/01-wazuh-failed-logon-alerts.png)
+![Evidence 01 — Wazuh Failed-Logon Alerts](BAZECORP-IR-2026-001_Evidence-01_Wazuh-Failed-Logon-Alerts.png)
 
 ### Evidence 02 — Joyce Account Search Results
 
-The Wazuh search results filtered for the affected account and endpoint.
+Wazuh search results filtered for the affected account and endpoint, showing four matching events within the selected time range.
 
-![Joyce Account Search Results](incidents/BAZECORP-IR-2026-001/evidence/02-wazuh-joyce-account-search.png)
+![Evidence 02 — Joyce Account Search Results](BAZECORP-IR-2026-001_Evidence-02_Joyce-Account-Search-Results.png)
 
 ### Evidence 03 — GLPI Incident Ticket
 
-The incident ticket documenting the investigation, assignment, and incident details.
+GLPI ticket #52 documenting the incident summary, affected account, investigation details, and assignment to the BAZECORP SOC Team.
 
-![GLPI Incident Ticket 52](incidents/BAZECORP-IR-2026-001/evidence/03-glpi-incident-ticket-52.png)
+![Evidence 03 — GLPI Incident Ticket 52](BAZECORP-IR-2026-001_Evidence-03_GLPI-Incident-Ticket.png)
 
 ### Evidence 04 — Detailed Failed-Logon Event
 
-The event fields showing the affected account, timestamp, source address, and authentication failure details.
+Detailed Windows event fields showing the affected account, event timestamp, source address, and authentication failure status.
 
-![Windows Failed-Logon Event Details](incidents/BAZECORP-IR-2026-001/evidence/04-windows-failed-logon-event-details.png)
+![Evidence 04 — Detailed Failed-Logon Event](BAZECORP-IR-2026-001_Evidence-04_Detailed-Failed-Logon-Event.png)
 
 ### Evidence 05 — Final Investigation Assessment
 
-The GLPI follow-up record documenting the investigation findings, limitations, and escalation assessment.
+The GLPI follow-up documenting the final assessment, investigation limitations, and escalation recommendation.
 
-![GLPI Investigation Assessment](incidents/BAZECORP-IR-2026-001/evidence/05-glpi-investigation-assessment.png)
+![Evidence 05 — Final Investigation Assessment](BAZECORP-IR-2026-001_Evidence-05_Final-Investigation-Assessment.png)
 
 ---
 
@@ -119,12 +121,8 @@ The GLPI follow-up record documenting the investigation findings, limitations, a
 ```text
 bazecorp-soc-operations/
 ├── README.md
-└── incidents/
-    └── BAZECORP-IR-2026-001/
-        ├── README.md
-        └── evidence/
-            ├── 01-wazuh-failed-logon-alerts.png
-            ├── 02-wazuh-joyce-account-search.png
-            ├── 03-glpi-incident-ticket-52.png
-            ├── 04-windows-failed-logon-event-details.png
-            └── 05-glpi-investigation-assessment.png
+├── BAZECORP-IR-2026-001_Evidence-01_Wazuh-Failed-Logon-Alerts.png
+├── BAZECORP-IR-2026-001_Evidence-02_Joyce-Account-Search-Results.png
+├── BAZECORP-IR-2026-001_Evidence-03_GLPI-Incident-Ticket.png
+├── BAZECORP-IR-2026-001_Evidence-04_Detailed-Failed-Logon-Event.png
+└── BAZECORP-IR-2026-001_Evidence-05_Final-Investigation-Assessment.png
